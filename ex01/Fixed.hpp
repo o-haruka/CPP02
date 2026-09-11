@@ -22,12 +22,8 @@ class Fixed{
 
         void setRawBits(int const raw);
         int getRawBits(void) const;
-
 };
 
-// !なぜクラスの外なのか？
-// !なぜ返り値はstd::ostream?
-// !なぜそれらの引数なの？
 std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

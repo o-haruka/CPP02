@@ -4,11 +4,11 @@
 int main( void ) {
     Fixed a;
     Fixed const b( 10 );
-    Fixed const c( 42.42f ); //末尾のfは
+    Fixed const c( 42.42f );
     Fixed const d( b );
-    // Fixed( 1234.4321f ) により、一時的な「名無しのオブジェクト」が作られます（Float constructor called）。  その名無しのオブジェクトの中身が、= によってすでに存在している a に上書きコピーされます（Copy assignment operator called）。  
+
     a = Fixed( 1234.4321f );
-    //上書きが終わると、一時的な「名無しのオブジェクト」はもういらないので、すぐに破棄されます（Destructor called）。
+    
     std::cout << "a is " << a << "\n";
     std::cout << "b is " << b << "\n";
     std::cout << "c is " << c << "\n";
