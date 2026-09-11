@@ -7,17 +7,12 @@ Fixed::Fixed(): num_(0){
 Fixed::Fixed(const Fixed &other){
     std::cout << "Copy constructor called\n";
     this->num_ = other.getRawBits();
-    // this->num = other.num_;
 }
 
-//! コピー代入演算子はコンストラクタではなく、「普通のメンバ関数」の特殊なバージョン:C++特有の「演算子オーバーロード」
 Fixed& Fixed::operator=(const Fixed& other){
     std::cout << "Copy assignment operator called\n";
-
-    if(this != &other) //!これが必要な理由がちゃんと言えない
+    if(this != &other)
         this->num_ = other.getRawBits();
-    //! なぜ*thisを返すのか...例)a = b = cのとき
-    //! bで受け取らないとa=bができない
     return *this; 
 }
 

@@ -66,8 +66,7 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
     return os;
 }
 
-//ex02 追加のoverload
-//比較演算
+// ----- comparison operators -----
 bool Fixed::operator>(const Fixed& other) const{
     return this->num_ > other.num_;
 }
@@ -92,7 +91,7 @@ bool Fixed::operator!=(const Fixed& other) const{
     return this->num_ != other.num_;
 }
 
-//四則演算
+// ----- arithmetic operators -----
 Fixed Fixed::operator+(const Fixed& other) const{
     Fixed result;
     result.num_ = this->num_ + other.num_;
@@ -113,35 +112,30 @@ Fixed Fixed::operator/(const Fixed& other) const{
     return Fixed(this->toFloat() / other.toFloat());
 }
 
-// インクリメント / デクリメント
-//前置インクリメント
+// ----- increment/decrement -----
 Fixed& Fixed::operator++(){
-    this->num_++; // 内部の生データに単純に1を足す
-    return *this; // 自分自身の実体（参照）を返す
+    this->num_++;
+    return *this;
 }
 
-//後置インクリメント
-Fixed Fixed::operator++(int){ //後置は引数にint入れる
+Fixed Fixed::operator++(int){
     Fixed tmp(*this);
     this->num_++;
     return tmp;
 }
 
-//前置デクリメント
 Fixed& Fixed::operator--(){
     this->num_--;
     return *this;
 }
 
-//後置デクリメント
 Fixed Fixed::operator--(int){
     Fixed tmp(*this);
     this->num_--;
     return tmp;
 }
 
-// min / max
-//*静的メンバ関数だけど、staticはつけない。
+// ----- min / max -----
 Fixed& Fixed::min(Fixed& a, Fixed& b){
     if(a < b)
         return a;

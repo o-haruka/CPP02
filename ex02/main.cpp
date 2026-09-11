@@ -30,11 +30,9 @@ int main( void ) {
     Fixed c(2);
     Fixed d(4);
 
-    // true / false を文字でわかりやすく出力するためのマクロ
-    std::cout << std::boolalpha;
+    std::cout << std::boolalpha; // true / false macro
     std::cout << "c = " << c << ", d = " << d << std::endl;
 
-    // ⚠️C++の罠： << と < が混ざるとコンパイルエラーになるので、比較は必ず () で囲むこと！
     std::cout << "c > d : " << (c > d) << "\n";
     std::cout << "c < d : " << (c < d) << "\n";
     std::cout << "c >= d : " << (c >= d) << "\n";
@@ -42,17 +40,15 @@ int main( void ) {
     std::cout << "c == d : " << (c == d) << "\n";
     std::cout << "c != d : " << (c != d) << "\n";
     
-    std::cout << std::noboolalpha;//1 と 0 の数字表示に戻す
+    std::cout << std::noboolalpha;
 
     std::cout << CYAN << "\n--- 四則演算のテスト ---\n" << RESET;
     
-    // 小数での計算が正しく（toFloat経由で）処理されるか確認しやすい数値をセット
     Fixed e(10.5f);
     Fixed f(2.0f);
 
     std::cout << "e = " << e << ", f = " << f << "\n\n";
 
-    // 演算結果はFixedオブジェクトとして返ってくるため、そのまま std::cout に渡せます
     std::cout << "e + f(期待値: 12.5) : " << (e + f) << "\n";
     std::cout << "---\n";
     std::cout << "e - f(期待値: 8.5) : " << (e - f) << "\n";
@@ -63,7 +59,7 @@ int main( void ) {
 
     std::cout << CYAN << "\n--- インクリメント / デクリメントのテスト ---\n" << RESET;
     
-    Fixed g; // デフォルトコンストラクタで 0 init
+    Fixed g;
 
     std::cout << "初期状態の g : " << g << "\n";
     std::cout << "---\n";
