@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 // ==========================================
 // 1. Orthodox Canonical Form
@@ -17,7 +18,7 @@ Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << "Copy assignment operator called\n";
     if (this != &other)
         this->num_ = other.num_;
-    return *this; 
+    return *this;
 }
 
 Fixed::~Fixed() {
@@ -50,7 +51,7 @@ int Fixed::getRawBits(void) const{
 }
 
 float Fixed::toFloat(void) const {
-    return static_cast<float>(this->num_) 
+    return static_cast<float>(this->num_)
             / static_cast<float>(1 << fractionalBits_);
 }
 

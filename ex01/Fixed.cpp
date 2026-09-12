@@ -11,14 +11,14 @@ Fixed::Fixed() : num_(0) {
 
 Fixed::Fixed(const Fixed& other) {
     std::cout << "Copy constructor called\n";
-    this->num_ = other.num_;
+    *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << "Copy assignment operator called\n";
     if (this != &other)
         this->num_ = other.num_;
-    return *this; 
+    return *this;
 }
 
 Fixed::~Fixed() {
@@ -52,7 +52,7 @@ int Fixed::getRawBits(void) const{
 }
 
 float Fixed::toFloat(void) const {
-    return static_cast<float>(this->num_) 
+    return static_cast<float>(this->num_)
             / static_cast<float>(1 << fractionalBits_);
 }
 
